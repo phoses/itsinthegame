@@ -4,10 +4,10 @@ import org.socialsignin.spring.data.dynamodb.repository.EnableScan;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-import com.gaming.domain.Player;
+import com.gaming.domain.Tournament;
 
 @EnableScan
-@RepositoryRestResource(path = "players")
-public interface PlayerRepository extends CrudRepository<Player, String> {
+@RepositoryRestResource(path = "tournaments")
+public interface TournamentRepository extends CrudRepository<Tournament, String> {
 
 }

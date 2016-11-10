@@ -1,0 +1,20 @@
+<h3>Tournament table</h3>
+
+<table>
+	<tr>
+		<th>Player</th>
+		<th>Games</th>
+		<th>Wins</th>
+		<th>Loses</th>
+		<th>Points</th>
+	</tr>
+	
+	<tr *ngFor="let result of results">
+		<td>{{result.player}}</td>
+		<td>{{result.games}}</td>
+		<td>{{result.wins}}</td>
+		<td>{{result.loses}}</td>
+		<td>{{result.points}}</td>
+	</tr>
+
+</table>

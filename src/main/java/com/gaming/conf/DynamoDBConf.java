@@ -3,14 +3,16 @@ package com.gaming.conf;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguration;
 
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Configuration
-public class DynamoDBConf {
+public class DynamoDBConf{ // extends RepositoryRestMvcConfiguration {
 
     @Value("${amazon.aws.accesskey}")
     private String amazonAWSAccessKey;
@@ -33,4 +35,9 @@ public class DynamoDBConf {
     public AWSCredentials amazonAWSCredentials() {
         return new BasicAWSCredentials(amazonAWSAccessKey, amazonAWSSecretKey);
     }
+    
+//    @Override
+//	public ObjectMapper halObjectMapper() {
+//		return new ResourcesMapper();
+//	}
 }

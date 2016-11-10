@@ -4,8 +4,8 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
-@DynamoDBTable(tableName = "Players")
-public class Player {
+@DynamoDBTable(tableName = "Tournaments")
+public class Tournament {
 
 	private String name;
 
@@ -18,5 +18,4 @@ public class Player {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
 }

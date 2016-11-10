@@ -1,0 +1,10 @@
+<h3>Tournaments</h3>
+<div class="add">
+	<label>Tournament name:</label> <input #tournamentName />
+	<button (click)="add(tournamentName.value); tournamentName.value=''">Add</button>
+</div>
+<div class="tournaments">
+	<div class="tournament" *ngFor="let tournament of tournaments">
+		<span>{{tournament.name}}</span>
+	</div>
+</div>
