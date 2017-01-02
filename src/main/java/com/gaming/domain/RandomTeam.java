@@ -25,4 +25,20 @@ public class RandomTeam {
 	public void setAwayTeam(Set<String> awayTeam) {
 		this.awayTeam = awayTeam;
 	}
+	
+	public void addHomePlayer(String player){
+		if(!homeTeam.contains(player) && !awayTeam.contains(player)){
+			homeTeam.add(player);
+		}
+	}
+	
+	public void addAwayPlayer(String player){
+		if(!homeTeam.contains(player) && !awayTeam.contains(player)){
+			awayTeam.add(player);
+		}
+	}
+	
+	public int playerCount(){
+		return homeTeam.size() + awayTeam.size();
+	}
 }

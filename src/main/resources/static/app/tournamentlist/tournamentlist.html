@@ -1,0 +1,7 @@
+<div class="group">
+	<label>Tournament</label>
+	<select #tournamentName (change)="setSelected(tournamentName.value)">
+		<option value="">Select tournament</option>
+		<option *ngFor=" let tournament of tournaments" [value]="tournament.name">{{tournament.name}}</option>
+	</select>
+</div>

@@ -14,7 +14,7 @@ export class TournamentsComponent implements OnInit {
     
     constructor(private backendService: BackendService) {}
 
-    getTournaments(): void {       
+    public getTournaments(): void {       
         this.backendService
             .getTournaments()
             .then(tournaments => {

@@ -63,10 +63,9 @@ export class BackendService {
             .catch(this.handleError);
     }
     
-    getResults(): Promise<Result[]> { 
-        console.log("getResults()");  
+    getResults(tournamentName : String): Promise<Result[]> { 
                   
-        return this.http.get(this.resultsUrl)
+        return this.http.get(this.resultsUrl+"/"+tournamentName)
             .toPromise()
             .then(response => {
                 return response.json() as Result[];

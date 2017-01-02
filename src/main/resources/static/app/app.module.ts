@@ -6,13 +6,14 @@ import { FormsModule }   from '@angular/forms';
 import { AppComponent }   from './app.component';
 import { PlayersComponent }   from './players/players.component';
 import { TournamentsComponent }   from './tournaments/tournaments.component';
+import { TournamentList }   from './tournamentlist/tournamentlist.component';
 import { GamesComponent }   from './games/games.component';
 import { ResultsComponent }   from './results/results.component';
 import { BackendService }   from './backend/backend.service';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, HttpModule ],
-  declarations: [ AppComponent, PlayersComponent, TournamentsComponent,GamesComponent,ResultsComponent ],
+  declarations: [ AppComponent, PlayersComponent, TournamentsComponent,GamesComponent,ResultsComponent, TournamentList ],
   providers:    [ BackendService ],
   bootstrap:    [ AppComponent ]
 })

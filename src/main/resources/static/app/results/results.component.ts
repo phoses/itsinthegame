@@ -14,16 +14,16 @@ export class ResultsComponent implements OnInit {
     
     constructor(private backendService: BackendService) {}
 
-    getResults(): void {       
+    getResults(tournamentName: String): void {           
         this.backendService
-            .getResults()
+            .getResults(tournamentName)
             .then(results => {
                 this.results = results;
             });
     }
   
     ngOnInit(): void {        
-       this.getResults();
+       this.getResults("");
     }
 
     private handleError(error: any): Promise<any> {

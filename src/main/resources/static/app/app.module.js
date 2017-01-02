@@ -15,6 +15,7 @@ var forms_1 = require('@angular/forms');
 var app_component_1 = require('./app.component');
 var players_component_1 = require('./players/players.component');
 var tournaments_component_1 = require('./tournaments/tournaments.component');
+var tournamentlist_component_1 = require('./tournamentlist/tournamentlist.component');
 var games_component_1 = require('./games/games.component');
 var results_component_1 = require('./results/results.component');
 var backend_service_1 = require('./backend/backend.service');
@@ -24,7 +25,7 @@ var AppModule = (function () {
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule],
-            declarations: [app_component_1.AppComponent, players_component_1.PlayersComponent, tournaments_component_1.TournamentsComponent, games_component_1.GamesComponent, results_component_1.ResultsComponent],
+            declarations: [app_component_1.AppComponent, players_component_1.PlayersComponent, tournaments_component_1.TournamentsComponent, games_component_1.GamesComponent, results_component_1.ResultsComponent, tournamentlist_component_1.TournamentList],
             providers: [backend_service_1.BackendService],
             bootstrap: [app_component_1.AppComponent]
         }), 

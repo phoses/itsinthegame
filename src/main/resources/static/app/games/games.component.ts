@@ -44,7 +44,6 @@ export class GamesComponent implements OnInit {
     
     ngOnInit(): void {        
        this.getPlayers();
-       this.getTournaments();
        this.getGames();
     }
     
@@ -53,7 +52,7 @@ export class GamesComponent implements OnInit {
                 homeGoals: number, 
                 awayPlayer1: String, awayPlayer2: String, awayPlayer3: String,
                 awayGoals: number) {
-        
+                    
         let homePlayers: String[] = [homePlayer1, homePlayer2, homePlayer3];
         let awayPlayers: String[] = [awayPlayer1, awayPlayer2, awayPlayer3];
         homePlayers = homePlayers.filter(function(n){ return n !== "" }); 

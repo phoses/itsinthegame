@@ -1,11 +1,6 @@
 <h3>Add game</h3>
-<div class="group">
-	<label>Tournament</label>
-	<select #tournamentName>
-		<option value="">Select tournament</option>
-		<option *ngFor=" let tournament of tournaments" [value]="tournament.name">{{tournament.name}}</option>
-	</select>
-</div>
+<tournamentlist #tournamentName></tournamentlist>
+
 <div class="group">
 	<label>Home team</label>
 	<select #homePlayer1>
@@ -44,7 +39,7 @@
 </div>
 <div class="group">
 	<button type="button" class="btn btn-default"
-		(click)="saveGame(tournamentName.value, 
+		(click)="saveGame(tournamentName.getSelected(), 
 						homePlayer1.value, homePlayer2.value, homePlayer3.value,
 						homeGoals.value,
 						awayPlayer1.value, awayPlayer2.value, awayPlayer3.value,

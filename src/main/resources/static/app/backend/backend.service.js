@@ -15,11 +15,10 @@ var BackendService = (function () {
     function BackendService(http) {
         this.http = http;
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        this.backendUrl = '';
-        this.playersUrl = this.backendUrl + '/players';
-        this.tournamentsUrl = this.backendUrl + '/tournaments';
-        this.gamesUrl = this.backendUrl + '/games';
-        this.resultsUrl = this.backendUrl + '/results';
+        this.playersUrl = '/players';
+        this.tournamentsUrl = '/tournaments';
+        this.gamesUrl = '/games';
+        this.resultsUrl = '/results';
     }
     BackendService.prototype.getPlayers = function () {
         console.log("getPlayers()");
@@ -63,9 +62,8 @@ var BackendService = (function () {
         })
             .catch(this.handleError);
     };
-    BackendService.prototype.getResults = function () {
-        console.log("getResults()");
-        return this.http.get(this.resultsUrl)
+    BackendService.prototype.getResults = function (tournamentName) {
+        return this.http.get(this.resultsUrl + "/" + tournamentName)
             .toPromise()
             .then(function (response) {
             return response.json();
