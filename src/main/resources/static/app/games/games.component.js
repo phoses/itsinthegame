@@ -8,9 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var game_1 = require('./game');
-var backend_service_1 = require('../backend/backend.service');
+var core_1 = require("@angular/core");
+var game_1 = require("./game");
+var backend_service_1 = require("../backend/backend.service");
 var GamesComponent = (function () {
     function GamesComponent(backendService) {
         this.backendService = backendService;
@@ -59,14 +59,14 @@ var GamesComponent = (function () {
             _this.games.push(game);
         });
     };
-    GamesComponent = __decorate([
-        core_1.Component({
-            selector: 'games',
-            templateUrl: 'app/games/games.html'
-        }), 
-        __metadata('design:paramtypes', [backend_service_1.BackendService])
-    ], GamesComponent);
     return GamesComponent;
 }());
+GamesComponent = __decorate([
+    core_1.Component({
+        selector: 'games',
+        templateUrl: 'app/games/games.html'
+    }),
+    __metadata("design:paramtypes", [backend_service_1.BackendService])
+], GamesComponent);
 exports.GamesComponent = GamesComponent;
 //# sourceMappingURL=games.component.js.map
