@@ -1,0 +1,20 @@
+Generate random teams
+<div class="players">
+	<div class="player" *ngFor="let player of players">
+		<span (click)="addPlayer(player.name)" [class.selected]="isSelected(player.name)">{{player.name}}</span>
+	</div>
+</div>
+
+<button *ngIf="selectedPlayers.length > 1" (click)="generateTeams()">Generate teams</button>
+
+<div class="generatedteams" *ngIf="randomteams.homeTeam.length > 0">
+	<div class="hometeam">
+	Home team:
+		<span class="randomplayer" *ngFor="let player of randomteams.homeTeam">{{player}}</span>
+	</div>
+	
+	<div class="awayteam">
+	Away team:
+		<span class="randomplayer" *ngFor="let player of randomteams.awayTeam">{{player}}</span>
+	</div>
+</div>

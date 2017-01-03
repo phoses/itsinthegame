@@ -6,6 +6,7 @@ import { Player } from '../players/player';
 import { Tournament } from '../tournaments/tournament';
 import { Game } from '../games/game';
 import { Result } from '../results/result';
+import { RandomTeams } from '../randomgenerator/randomteams';
 
 @Injectable()
 export class BackendService {
@@ -17,6 +18,7 @@ export class BackendService {
     private tournamentsUrl = this.backendurl+'/tournaments'; 
     private gamesUrl = this.backendurl+'/games'; 
     private resultsUrl = this.backendurl+'/results'; 
+    private randomTeamsUrl = this.backendurl+'/randomteams'; 
 
     constructor(private http: Http) { }
 
@@ -71,6 +73,27 @@ export class BackendService {
             .toPromise()
             .then(response => {
                 return response.json() as Result[];
+            })
+            .catch(this.handleError);
+    }
+    
+    getRandomTeams(players : String[]): Promise<RandomTeams> { 
+                          
+        var playerParams = "";
+        
+        var arrayLength = players.length;
+        for (var i = 0; i < arrayLength; i++) {
+            if(playerParams != ""){
+                playerParams += "&";
+            }
+        
+            playerParams += players[i];
+        }
+        
+        return this.http.get(this.randomTeamsUrl+"/?"+playerParams)
+            .toPromise()
+            .then(response => {
+                return response.json() as RandomTeams;
             })
             .catch(this.handleError);
     }

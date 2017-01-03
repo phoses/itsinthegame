@@ -1,8 +1,9 @@
 
-<input type="button" (click)="showConfig = !showConfig" value="Toggle config" />
+<button class="configbutton" (click)="showConfig = !showConfig">Toggle config</button>
 
 <players *ngIf="showConfig" class="group"></players>
 <tournaments *ngIf="showConfig" class="group"></tournaments>
 
+<randomizer class="group"></randomizer>
 <results class="group"></results>
 <games class="group"></games>

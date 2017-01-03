@@ -9,11 +9,12 @@ import { TournamentsComponent }   from './tournaments/tournaments.component';
 import { TournamentList }   from './tournamentlist/tournamentlist.component';
 import { GamesComponent }   from './games/games.component';
 import { ResultsComponent }   from './results/results.component';
+import { RandomizerComponent }   from './randomgenerator/randomizer.component';
 import { BackendService }   from './backend/backend.service';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, HttpModule ],
-  declarations: [ AppComponent, PlayersComponent, TournamentsComponent,GamesComponent,ResultsComponent, TournamentList ],
+  declarations: [ AppComponent, PlayersComponent, TournamentsComponent,GamesComponent,ResultsComponent, TournamentList, RandomizerComponent ],
   providers:    [ BackendService ],
   bootstrap:    [ AppComponent ]
 })

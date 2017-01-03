@@ -15,12 +15,13 @@ var BackendService = (function () {
     function BackendService(http) {
         this.http = http;
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        //    private backendurl = 'http://testing.vkcdvpmhqy.us-west-2.elasticbeanstalk.com';
-        this.backendurl = '';
+        this.backendurl = 'http://testing.vkcdvpmhqy.us-west-2.elasticbeanstalk.com';
+        //    private backendurl = '';
         this.playersUrl = this.backendurl + '/players';
         this.tournamentsUrl = this.backendurl + '/tournaments';
         this.gamesUrl = this.backendurl + '/games';
         this.resultsUrl = this.backendurl + '/results';
+        this.randomTeamsUrl = this.backendurl + '/randomteams';
     }
     BackendService.prototype.getPlayers = function () {
         console.log("getPlayers()");
@@ -66,6 +67,23 @@ var BackendService = (function () {
     };
     BackendService.prototype.getResults = function (tournamentName) {
         return this.http.get(this.resultsUrl + "/" + tournamentName)
+            .toPromise()
+            .then(function (response) {
+            return response.json();
+        })
+            .catch(this.handleError);
+    };
+    BackendService.prototype.getRandomTeams = function (players) {
+        console.log("random teams from players : " + players);
+        var playerParams = "";
+        var arrayLength = players.length;
+        for (var i = 0; i < arrayLength; i++) {
+            if (playerParams != "") {
+                playerParams += "&";
+            }
+            playerParams += players[i];
+        }
+        return this.http.get(this.randomTeamsUrl + "/?" + playerParams)
             .toPromise()
             .then(function (response) {
             return response.json();
