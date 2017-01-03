@@ -1,7 +1,8 @@
 Generate random teams<br/>
 <div class="players">
-	<div class="player" *ngFor="let player of players">
-		<span (click)="addPlayer(player.name)" [class.selected]="isSelected(player.name)">{{player.name}}</span>
+	<div class="player" *ngFor="let player of players"
+		(click)="addPlayer(player.name)" [class.selected]="isSelected(player.name)">
+		{{player.name}}
 	</div>
 </div>
 

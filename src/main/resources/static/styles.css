@@ -16,7 +16,7 @@ button { padding: 5px 10px; border-radius: 5px; background-color: #fff; cursor:p
 games input[type=text] { width: 30px; padding: 5px; border-radius: 5px; }
 label { font-weight: bold; }
 
-span.selected{
+div.selected{
 	background-color:lightblue;
 }
 
