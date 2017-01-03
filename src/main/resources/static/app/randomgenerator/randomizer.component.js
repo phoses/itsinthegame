@@ -26,7 +26,6 @@ var RandomizerComponent = (function () {
         else {
             this.selectedPlayers.push(player);
         }
-        console.log(this.selectedPlayers);
     };
     RandomizerComponent.prototype.isSelected = function (player) {
         var index = this.selectedPlayers.indexOf(player);
@@ -34,7 +33,6 @@ var RandomizerComponent = (function () {
     };
     RandomizerComponent.prototype.generateTeams = function () {
         var _this = this;
-        console.log(this.selectedPlayers);
         this.backendService
             .getRandomTeams(this.selectedPlayers)
             .then(function (randomteams) {
