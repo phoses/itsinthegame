@@ -15,6 +15,8 @@ export class GamesComponent implements OnInit {
     games : Game[] = [];
     tournaments : Tournament[] = [];
     players : Player[] = [];
+    
+    showAddGame = false;
 
     constructor(private backendService: BackendService) { }
 

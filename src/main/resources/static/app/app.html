@@ -1,4 +1,8 @@
-<players class="group"></players>
-<tournaments class="group"></tournaments>
-<games class="group"></games>
+
+<input type="button" (click)="showConfig = !showConfig" value="Toggle config" />
+
+<players *ngIf="showConfig" class="group"></players>
+<tournaments *ngIf="showConfig" class="group"></tournaments>
+
 <results class="group"></results>
+<games class="group"></games>

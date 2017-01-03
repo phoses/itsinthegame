@@ -1,50 +1,55 @@
-<h3>Add game</h3>
-<tournamentlist #tournamentName></tournamentlist>
+<input type="button" *ngIf="!showAddGame" (click)="showAddGame = !showAddGame;" value="Add game" />
 
-<div class="group">
-	<label>Home team</label>
-	<select #homePlayer1>
-		<option value="">Add player</option>
-		<option *ngFor=" let player of players" [value]="player.name">{{player.name}}</option>
-	</select>
-	<select #homePlayer2>
-		<option value="">Add player</option>
-		<option *ngFor=" let player of players" [value]="player.name">{{player.name}}</option>
-	</select>
-	<select #homePlayer3>
-		<option value="">Add player</option>
-		<option *ngFor=" let player of players" [value]="player.name">{{player.name}}</option>
-	</select>
+<div class="addgame" *ngIf="showAddGame">
+	<h3>Add game</h3>
+	<tournamentlist #tournamentName></tournamentlist>
+	
+	<div class="group">
+		<label>Home team</label>
+		<select #homePlayer1>
+			<option value="">Add player</option>
+			<option *ngFor=" let player of players" [value]="player.name">{{player.name}}</option>
+		</select>
+		<select #homePlayer2>
+			<option value="">Add player</option>
+			<option *ngFor=" let player of players" [value]="player.name">{{player.name}}</option>
+		</select>
+		<select #homePlayer3>
+			<option value="">Add player</option>
+			<option *ngFor=" let player of players" [value]="player.name">{{player.name}}</option>
+		</select>
+	</div>
+	<div class="group">
+		<label>Away team</label>
+		<select #awayPlayer1>
+			<option value="">Add player</option>
+			<option *ngFor=" let player of players" [value]="player.name">{{player.name}}</option>
+		</select>
+		<select #awayPlayer2>
+			<option value="">Add player</option>
+			<option *ngFor=" let player of players" [value]="player.name">{{player.name}}</option>
+		</select>
+		<select #awayPlayer3>
+			<option value="">Add player</option>
+			<option *ngFor=" let player of players" [value]="player.name">{{player.name}}</option>
+		</select>
+	</div>
+	<div class="group">
+		<label>Away goals</label>
+		<input #awayGoals>
+		<label>Home goals</label>
+		<input #homeGoals>
+	</div>
+	<div class="group">
+		<button type="button" class="btn btn-default"
+			(click)="saveGame(tournamentName.getSelected(), 
+							homePlayer1.value, homePlayer2.value, homePlayer3.value,
+							homeGoals.value,
+							awayPlayer1.value, awayPlayer2.value, awayPlayer3.value,
+							awayGoals.value);">Add</button>
+	</div>
 </div>
-<div class="group">
-	<label>Away team</label>
-	<select #awayPlayer1>
-		<option value="">Add player</option>
-		<option *ngFor=" let player of players" [value]="player.name">{{player.name}}</option>
-	</select>
-	<select #awayPlayer2>
-		<option value="">Add player</option>
-		<option *ngFor=" let player of players" [value]="player.name">{{player.name}}</option>
-	</select>
-	<select #awayPlayer3>
-		<option value="">Add player</option>
-		<option *ngFor=" let player of players" [value]="player.name">{{player.name}}</option>
-	</select>
-</div>
-<div class="group">
-	<label>Away goals</label>
-	<input #awayGoals>
-	<label>Home goals</label>
-	<input #homeGoals>
-</div>
-<div class="group">
-	<button type="button" class="btn btn-default"
-		(click)="saveGame(tournamentName.getSelected(), 
-						homePlayer1.value, homePlayer2.value, homePlayer3.value,
-						homeGoals.value,
-						awayPlayer1.value, awayPlayer2.value, awayPlayer3.value,
-						awayGoals.value);">Add</button>
-</div>
+
 <div class="group">						
 	<h3>Played games</h3>		
 	<div class="game" *ngFor="let game of games">

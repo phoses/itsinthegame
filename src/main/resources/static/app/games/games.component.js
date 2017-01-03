@@ -17,6 +17,7 @@ var GamesComponent = (function () {
         this.games = [];
         this.tournaments = [];
         this.players = [];
+        this.showAddGame = false;
     }
     GamesComponent.prototype.getPlayers = function () {
         var _this = this;

@@ -13,7 +13,7 @@ export class PlayersComponent implements OnInit {
     players : Player[] = [];
     
     constructor(private backendService: BackendService) {}
-
+    
     getPlayers(): void {       
         this.backendService
             .getPlayers()
