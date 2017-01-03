@@ -15,10 +15,12 @@ var BackendService = (function () {
     function BackendService(http) {
         this.http = http;
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        this.playersUrl = '/players';
-        this.tournamentsUrl = '/tournaments';
-        this.gamesUrl = '/games';
-        this.resultsUrl = '/results';
+        //    private backendurl = 'http://testing.vkcdvpmhqy.us-west-2.elasticbeanstalk.com';
+        this.backendurl = '';
+        this.playersUrl = this.backendurl + '/players';
+        this.tournamentsUrl = this.backendurl + '/tournaments';
+        this.gamesUrl = this.backendurl + '/games';
+        this.resultsUrl = this.backendurl + '/results';
     }
     BackendService.prototype.getPlayers = function () {
         console.log("getPlayers()");

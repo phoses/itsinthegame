@@ -11,10 +11,12 @@ import { Result } from '../results/result';
 export class BackendService {
 
     private headers = new Headers({'Content-Type': 'application/json'});
-    private playersUrl = '/players'; 
-    private tournamentsUrl = '/tournaments'; 
-    private gamesUrl = '/games'; 
-    private resultsUrl = '/results'; 
+//    private backendurl = 'http://testing.vkcdvpmhqy.us-west-2.elasticbeanstalk.com';
+    private backendurl = '';
+    private playersUrl = this.backendurl+'/players'; 
+    private tournamentsUrl = this.backendurl+'/tournaments'; 
+    private gamesUrl = this.backendurl+'/games'; 
+    private resultsUrl = this.backendurl+'/results'; 
 
     constructor(private http: Http) { }
 
