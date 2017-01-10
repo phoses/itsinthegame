@@ -1,4 +1,3 @@
-<input type="button" *ngIf="!showAddGame" (click)="showAddGame = !showAddGame;" value="Add game" />
 
 <div class="addgame" *ngIf="showAddGame">
 	<h3>Add game</h3>
@@ -14,10 +13,12 @@
 			<option value="">Add player</option>
 			<option *ngFor=" let player of players" [value]="player.name">{{player.name}}</option>
 		</select>
-		<select #homePlayer3>
+		<select #homePlayer3 style="display:none;">
 			<option value="">Add player</option>
 			<option *ngFor=" let player of players" [value]="player.name">{{player.name}}</option>
 		</select>
+		<label>goals</label>
+		<input type="text" maxlength="2" size="2" #homeGoals />
 	</div>
 	<div class="group">
 		<label>Away team</label>
@@ -29,16 +30,12 @@
 			<option value="">Add player</option>
 			<option *ngFor=" let player of players" [value]="player.name">{{player.name}}</option>
 		</select>
-		<select #awayPlayer3>
+		<select #awayPlayer3 style="display:none;">
 			<option value="">Add player</option>
 			<option *ngFor=" let player of players" [value]="player.name">{{player.name}}</option>
 		</select>
-	</div>
-	<div class="group">
-		<label>Away goals</label>
-		<input #awayGoals>
-		<label>Home goals</label>
-		<input #homeGoals>
+		<label>goals</label>
+		<input type="text" maxlength="2" size="2" #awayGoals/>
 	</div>
 	<div class="group">
 		<button type="button" class="btn btn-default"
@@ -50,6 +47,7 @@
 	</div>
 </div>
 
+<input type="button" *ngIf="!showAddGame" (click)="showAddGame = !showAddGame;" value="Add game" />
 <div class="group">						
 	<h3>Played games</h3>		
 	<div class="game" *ngFor="let game of games">

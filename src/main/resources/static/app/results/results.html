@@ -2,21 +2,21 @@
 
 <tournamentlist #tournamentName (change)="getResults(tournamentName.getSelected());"></tournamentlist>
 
-<table>
+<table class="tournamentTable">
 	<tr>
 		<th>Player</th>
-		<th>Games</th>
-		<th>Wins</th>
-		<th>Loses</th>
-		<th>Points</th>
+		<th class="number">Games</th>
+		<th class="number">Wins</th>
+		<th class="number">Loses</th>
+		<th class="number">Points</th>
 	</tr>
 	
 	<tr *ngFor="let result of results">
 		<td>{{result.player}}</td>
-		<td>{{result.games}}</td>
-		<td>{{result.wins}}</td>
-		<td>{{result.loses}}</td>
-		<td>{{result.points}}</td>
+		<td class="number">{{result.games}}</td>
+		<td class="number">{{result.wins}}</td>
+		<td class="number">{{result.loses}}</td>
+		<td class="number">{{result.points}}</td>
 	</tr>
 
 </table>

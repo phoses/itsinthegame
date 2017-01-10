@@ -1,28 +1,30 @@
 package com.gaming.domain;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class RandomTeam {
 
-	private Set<String> homeTeam;
-	private Set<String> awayTeam;
+	private List<String> homeTeam;
+	private List<String> awayTeam;
 	
 	public RandomTeam(){
-		homeTeam = new HashSet<>();
-		awayTeam = new HashSet<>();
+		homeTeam = new ArrayList<>();
+		awayTeam = new ArrayList<>();
 	}
 	
-	public Set<String> getHomeTeam() {
+	public List<String> getHomeTeam() {
 		return homeTeam;
 	}
-	public void setHomeTeam(Set<String> homeTeam) {
+	public void setHomeTeam(List<String> homeTeam) {
 		this.homeTeam = homeTeam;
 	}
-	public Set<String> getAwayTeam() {
+	public List<String> getAwayTeam() {
 		return awayTeam;
 	}
-	public void setAwayTeam(Set<String> awayTeam) {
+	public void setAwayTeam(List<String> awayTeam) {
 		this.awayTeam = awayTeam;
 	}
 	
