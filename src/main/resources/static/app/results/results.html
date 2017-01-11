@@ -5,18 +5,18 @@
 <table class="tournamentTable">
 	<tr>
 		<th>Player</th>
-		<th class="number">Games</th>
-		<th class="number">Wins</th>
-		<th class="number">Loses</th>
-		<th class="number">Points</th>
+		<th class="right">Games</th>
+		<th class="right">Wins</th>
+		<th class="right">Loses</th>
+		<th class="right">Points</th>
 	</tr>
 	
 	<tr *ngFor="let result of results">
 		<td>{{result.player}}</td>
-		<td class="number">{{result.games}}</td>
-		<td class="number">{{result.wins}}</td>
-		<td class="number">{{result.loses}}</td>
-		<td class="number">{{result.points}}</td>
+		<td class="right">{{result.games}}</td>
+		<td class="right">{{result.wins}}</td>
+		<td class="right">{{result.loses}}</td>
+		<td class="right">{{result.points}}</td>
 	</tr>
 
 </table>

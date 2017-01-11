@@ -15,8 +15,8 @@ var BackendService = (function () {
     function BackendService(http) {
         this.http = http;
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        //    private backendurl = 'http://testing.vkcdvpmhqy.us-west-2.elasticbeanstalk.com';
-        this.backendurl = '';
+        this.backendurl = 'http://testing.vkcdvpmhqy.us-west-2.elasticbeanstalk.com';
+        //private backendurl = '';
         this.playersUrl = this.backendurl + '/players';
         this.tournamentsUrl = this.backendurl + '/tournaments';
         this.gamesUrl = this.backendurl + '/games';

@@ -126,6 +126,10 @@ div.selected {
 	background-color: lightblue;
 }
 
+div.generatedteams{
+	padding-top:20px;
+}
+
 span.randomplayer {
 	margin-left: 5px;
 }
@@ -142,6 +146,6 @@ table.tournamentTable th, table.tournamentTable td{
 	padding-right:10px;
 }
 
-table.tournamentTable th.number, table.tournamentTable td.number{
+table.tournamentTable th.right, table.tournamentTable td.right, table.tournamenTable td.right input{
 	text-align:right;
 }

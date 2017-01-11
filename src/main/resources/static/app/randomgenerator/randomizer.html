@@ -10,13 +10,29 @@ Generate random teams<br/>
 <button *ngIf="selectedPlayers.length > 1" (click)="generateTeams()">Generate teams</button>
 
 <div class="generatedteams" *ngIf="randomteams.homeTeam.length > 0">
-	<div class="hometeam">
-	Home team:
-		<span class="randomplayer" *ngFor="let player of randomteams.homeTeam">{{player}}</span>
-	</div>
-	
-	<div class="awayteam">
-	Away team:
-		<span class="randomplayer" *ngFor="let player of randomteams.awayTeam">{{player}}</span>
-	</div>
+
+	<tournamentlist #tournamentName></tournamentlist>
+	<table class="tournamentTable">
+		<tr>
+			<td colspan="2"></td>
+			<td>Score</td>
+		</tr>
+		<tr>
+			<td>Home team:</td>
+			<td><span class="randomplayer" *ngFor="let player of randomteams.homeTeam">{{player}}</span></td>
+			<td><input type="text" maxlength="2" size="2" [(ngModel)]="homeGoals" [disabled] ="gameAdded"/></td> 
+		</tr>
+		<tr>
+			<td>Away team:</td>
+			<td><span class="randomplayer" *ngFor="let player of randomteams.awayTeam">{{player}}</span></td>
+			<td><input type="text" maxlength="2" size="2" [(ngModel)]="awayGoals" [disabled] ="gameAdded"/></td> 
+		</tr>
+		<tr>
+			<td colspan="3" class="right">
+				<button type="button" class="btn btn-default" [disabled] ="gameAdded"
+					(click)="saveGame(tournamentName.getSelected());">Add</button>
+			</td>
+		</tr>
+	</table>
+
 </div>
