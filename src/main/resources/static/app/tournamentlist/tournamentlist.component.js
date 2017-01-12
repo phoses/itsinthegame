@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var backend_service_1 = require('../backend/backend.service');
+var core_1 = require("@angular/core");
+var backend_service_1 = require("../backend/backend.service");
 var TournamentList = (function () {
     function TournamentList(backendService) {
         this.backendService = backendService;
@@ -32,14 +32,14 @@ var TournamentList = (function () {
     TournamentList.prototype.getSelected = function () {
         return this.selected;
     };
-    TournamentList = __decorate([
-        core_1.Component({
-            selector: 'tournamentlist',
-            templateUrl: 'app/tournamentlist/tournamentlist.html'
-        }), 
-        __metadata('design:paramtypes', [backend_service_1.BackendService])
-    ], TournamentList);
     return TournamentList;
 }());
+TournamentList = __decorate([
+    core_1.Component({
+        selector: 'tournamentlist',
+        templateUrl: 'app/tournamentlist/tournamentlist.html'
+    }),
+    __metadata("design:paramtypes", [backend_service_1.BackendService])
+], TournamentList);
 exports.TournamentList = TournamentList;
 //# sourceMappingURL=tournamentlist.component.js.map

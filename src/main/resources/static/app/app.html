@@ -1,6 +1,6 @@
+<randomizer [gamesRef]="games" [resultsRef]="results" class="group"></randomizer>
 <results #results class="group"></results>
 <games #games class="group"></games>
-<randomizer [gamesRef]="games" [resultsRef]="results" class="group"></randomizer>
 
 <button class="configbutton" (click)="showConfig = !showConfig">Toggle config</button>
 <players *ngIf="showConfig" class="group"></players>
