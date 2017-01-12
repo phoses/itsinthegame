@@ -7,6 +7,10 @@ public class Result {
 	private int wins;
 	private int loses;
 	private int points;
+	private int winpros;
+	private int plusminus;
+	
+	private boolean fewGames;
 
 	public Result(String player){
 		this.player = player;
@@ -65,6 +69,34 @@ public class Result {
 	
 	public void addPoints(Integer points){		
 		this.points += points;
+	}
+
+	public Integer getWinpros() {
+		return winpros;
+	}
+
+	public void setWinpros(int winpros) {
+		this.winpros = winpros;
+	}
+
+	public Integer getPlusminus() {
+		return plusminus;
+	}
+
+	public void setPlusminus(int plusminus) {
+		this.plusminus = plusminus;
+	}
+
+	public void adjustWinPros() {
+		this.winpros = (int)(((double)wins / (double)games) * 1000);		
+	}
+
+	public boolean isFewGames() {
+		return fewGames;
+	}
+
+	public void setFewGames(boolean fewGames) {
+		this.fewGames = fewGames;
 	}
 
 }

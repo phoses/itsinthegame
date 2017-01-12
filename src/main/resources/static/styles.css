@@ -146,6 +146,10 @@ table.tournamentTable th, table.tournamentTable td{
 	padding-right:10px;
 }
 
-table.tournamentTable th.right, table.tournamentTable td.right, table.tournamenTable td.right input{
+table.tournamentTable th.right, table.tournamentTable td.right, input.right{
 	text-align:right;
+}
+
+table tr.fewGames{
+	color: #FF8080;
 }

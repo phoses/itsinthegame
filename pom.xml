@@ -5,7 +5,7 @@
 
 	<groupId>com.gaming</groupId>
 	<artifactId>itsinthegame</artifactId>
-	<version>0.0.29-SNAPSHOT</version>
+	<version>0.0.32-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>itsinthegame</name>
@@ -35,6 +35,16 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		
+		 <resources>
+	        <resource>
+	        	<directory>src/main/resources</directory>
+	            <excludes>
+	                <exclude>static/node_modules/lite-server/**</exclude>
+	            </excludes>
+	            <filtering>false</filtering>
+	        </resource>
+	    </resources>
 	</build>
 
 	<repositories>
@@ -152,6 +162,5 @@
 
 
 	</dependencies>
-
 
 </project>

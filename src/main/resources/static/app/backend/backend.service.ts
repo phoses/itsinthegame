@@ -12,8 +12,9 @@ import { RandomTeams } from '../randomgenerator/randomteams';
 export class BackendService {
 
     private headers = new Headers({'Content-Type': 'application/json'});
-    private backendurl = 'http://testing.vkcdvpmhqy.us-west-2.elasticbeanstalk.com';
-    //private backendurl = '';
+//    private backendurl = 'http://testing.vkcdvpmhqy.us-west-2.elasticbeanstalk.com';
+//    private backendurl = 'http://localhost:5000';
+    private backendurl = '';
     private playersUrl = this.backendurl+'/players'; 
     private tournamentsUrl = this.backendurl+'/tournaments'; 
     private gamesUrl = this.backendurl+'/games'; 

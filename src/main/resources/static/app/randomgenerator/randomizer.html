@@ -20,16 +20,17 @@ Generate random teams<br/>
 		<tr>
 			<td>Home team:</td>
 			<td><span class="randomplayer" *ngFor="let player of randomteams.homeTeam">{{player}}</span></td>
-			<td><input type="text" maxlength="2" size="2" [(ngModel)]="homeGoals" [disabled] ="gameAdded"/></td> 
+			<td><input class="right" type="text" maxlength="2" size="2" [(ngModel)]="homeGoals" [disabled] ="gameAdded"/></td> 
 		</tr>
 		<tr>
 			<td>Away team:</td>
 			<td><span class="randomplayer" *ngFor="let player of randomteams.awayTeam">{{player}}</span></td>
-			<td><input type="text" maxlength="2" size="2" [(ngModel)]="awayGoals" [disabled] ="gameAdded"/></td> 
+			<td><input class="right" type="text" maxlength="2" size="2" [(ngModel)]="awayGoals" [disabled] ="gameAdded"/></td> 
 		</tr>
 		<tr>
 			<td colspan="3" class="right">
-				<button type="button" class="btn btn-default" [disabled] ="gameAdded"
+				<button type="button" class="btn btn-default" 
+					[disabled] ="gameAdded || tournamentName.getSelected() === '' || homeGoals === null || awayGoals===null"
 					(click)="saveGame(tournamentName.getSelected());">Add</button>
 			</td>
 		</tr>

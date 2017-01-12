@@ -16,8 +16,8 @@ export class RandomizerComponent implements OnInit {
 
     players : Player[] = [];
     selectedPlayers : String[] = [];
-    homeGoals: number;
-    awayGoals: number;
+    homeGoals: number = null;
+    awayGoals: number = null;
     randomteams : RandomTeams = new RandomTeams([],[]);
     gameAdded: boolean = false;
     @Input() gamesRef:GamesComponent;

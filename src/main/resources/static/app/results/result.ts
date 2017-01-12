@@ -3,6 +3,9 @@ export class Result{
     games: number;
     wins: number;
     loses: number;
-    points: number;    
+    points: number;  
+    winpros: number;
+    plusminus: number;
+    fewGames: boolean;  
   
 }

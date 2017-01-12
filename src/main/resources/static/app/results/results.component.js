@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("@angular/core");
-var backend_service_1 = require("../backend/backend.service");
+var core_1 = require('@angular/core');
+var backend_service_1 = require('../backend/backend.service');
 var ResultsComponent = (function () {
     function ResultsComponent(backendService) {
         this.backendService = backendService;
@@ -30,14 +30,14 @@ var ResultsComponent = (function () {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);
     };
+    ResultsComponent = __decorate([
+        core_1.Component({
+            selector: 'results',
+            templateUrl: 'app/results/results.html'
+        }), 
+        __metadata('design:paramtypes', [backend_service_1.BackendService])
+    ], ResultsComponent);
     return ResultsComponent;
 }());
-ResultsComponent = __decorate([
-    core_1.Component({
-        selector: 'results',
-        templateUrl: 'app/results/results.html'
-    }),
-    __metadata("design:paramtypes", [backend_service_1.BackendService])
-], ResultsComponent);
 exports.ResultsComponent = ResultsComponent;
 //# sourceMappingURL=results.component.js.map

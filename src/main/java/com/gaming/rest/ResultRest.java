@@ -61,6 +61,12 @@ public class ResultRest {
 				}else{
 					results.get(homePlayer).addLose();
 				}
+				
+				int plusminus = results.get(homePlayer).getPlusminus();
+				plusminus += (game.getHomeGoals() - game.getAwayGoals());
+				results.get(homePlayer).setPlusminus(plusminus);
+				
+				results.get(homePlayer).adjustWinPros();
 			}
 			
 			for(String awayPlayer : game.getAwayPlayers()){
@@ -74,20 +80,57 @@ public class ResultRest {
 				}else{
 					results.get(awayPlayer).addLose();
 				}
+				
+				int plusminus = results.get(awayPlayer).getPlusminus();
+				plusminus += game.getAwayGoals() - game.getHomeGoals();
+				results.get(awayPlayer).setPlusminus(plusminus);
+				
+				results.get(awayPlayer).adjustWinPros();
+			}
+		}
+				
+		List<Result> resultsList = new ArrayList<>(results.values());
+		calculateFewPlayedPlayers(resultsList);
+		
+		Collections.sort(resultsList, new ResultComparator());
+		
+		return resultsList;
+	}
+	
+	private void calculateFewPlayedPlayers(List<Result> resultsList) {
+		
+		int maxPlayed = 0;
+		
+		for(Result result : resultsList){
+			if(result.getGames() > maxPlayed){
+				maxPlayed = result.getGames();
 			}
 		}
 		
-		List<Result> resultsList = new ArrayList<>(results.values());
-		
-		Collections.sort(resultsList, new Comparator<Result>(){
-
-			@Override
-			public int compare(Result o1, Result o2) {
-				return o1.getPoints().compareTo(o2.getPoints()) * -1;
+		for(Result result : resultsList){
+			if(result.getGames() < maxPlayed / 2){
+				result.setFewGames(true);
 			}
-			
-		});
+		}
 		
-		return resultsList;
+	}
+
+	class ResultComparator implements Comparator<Result>{
+
+		@Override
+		public int compare(Result o1, Result o2) {
+			
+			if(o1.getWinpros().compareTo(o2.getWinpros()) == 0){
+				if(o1.getPoints().compareTo(o2.getPoints()) == 0){
+					return o1.getPlusminus().compareTo(o2.getPlusminus())*-1;
+				}else{
+					return o1.getPoints().compareTo(o2.getPoints())*-1;
+				}	
+			}else{
+				return o1.getWinpros().compareTo(o2.getWinpros())*-1;
+			}
+						
+		}
+		
 	}
 }

@@ -5,18 +5,24 @@
 <table class="tournamentTable">
 	<tr>
 		<th>Player</th>
-		<th class="right">Games</th>
-		<th class="right">Wins</th>
-		<th class="right">Loses</th>
-		<th class="right">Points</th>
+		<th class="right">GP</th>
+		<th class="right">W</th>
+		<th class="right">L</th>
+		<th class="right">P</th>
+		<th class="right">P%</th>
+		<th class="right">+/-</th>
 	</tr>
 	
-	<tr *ngFor="let result of results">
+	<tr *ngFor="let result of results" [class.fewGames]="result.fewGames">
 		<td>{{result.player}}</td>
 		<td class="right">{{result.games}}</td>
 		<td class="right">{{result.wins}}</td>
 		<td class="right">{{result.loses}}</td>
 		<td class="right">{{result.points}}</td>
+		<td class="right" *ngIf="result.winpros === 1000">1</td>
+		<td class="right" *ngIf="result.winpros === 0">0</td>
+		<td class="right" *ngIf="result.winpros < 1000 && result.winpros > 0">.{{result.winpros}}</td>
+		<td class="right">{{result.plusminus}}</td>
 	</tr>
 
 </table>

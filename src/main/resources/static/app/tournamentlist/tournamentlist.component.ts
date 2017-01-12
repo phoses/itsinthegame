@@ -11,7 +11,7 @@ import { BackendService } from '../backend/backend.service';
 export class TournamentList implements OnInit {
 
     tournaments : Tournament[] = [];
-    selected : String;
+    selected : String = '';
     
     constructor(private backendService: BackendService) {}
 
