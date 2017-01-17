@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var backend_service_1 = require('../backend/backend.service');
+var games_component_1 = require('../games/games.component');
 var ResultsComponent = (function () {
     function ResultsComponent(backendService) {
         this.backendService = backendService;
@@ -22,6 +23,7 @@ var ResultsComponent = (function () {
             .then(function (results) {
             _this.results = results;
         });
+        this.gamesRef.getGames(tournamentName);
     };
     ResultsComponent.prototype.ngOnInit = function () {
         this.getResults("");
@@ -30,6 +32,10 @@ var ResultsComponent = (function () {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);
     };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', games_component_1.GamesComponent)
+    ], ResultsComponent.prototype, "gamesRef", void 0);
     ResultsComponent = __decorate([
         core_1.Component({
             selector: 'results',

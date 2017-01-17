@@ -17,7 +17,8 @@ export class BackendService {
     private backendurl = '';
     private playersUrl = this.backendurl+'/players'; 
     private tournamentsUrl = this.backendurl+'/tournaments'; 
-    private gamesUrl = this.backendurl+'/games'; 
+    private gamesUrl = this.backendurl+'/games';
+    private playedGames = this.backendurl+'/playedGames';  
     private resultsUrl = this.backendurl+'/results'; 
     private randomTeamsUrl = this.backendurl+'/randomteams'; 
 
@@ -53,17 +54,13 @@ export class BackendService {
             .catch(this.handleError);
     }
        
-    getGames(): Promise<Game[]> { 
+    getGames(tournamentName : String): Promise<Game[]> { 
         console.log("getGames()");  
                   
-        return this.http.get(this.gamesUrl)
+        return this.http.get(this.playedGames+"/"+tournamentName)
             .toPromise()
             .then(response => {
-                if(response.json()._embedded !== undefined){
-                    return response.json()._embedded.games as Game[];
-                }else{
-                    return [];
-                }
+                  return response.json() as Game[];
             })
             .catch(this.handleError);
     }

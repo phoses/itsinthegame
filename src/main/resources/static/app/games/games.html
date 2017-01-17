@@ -49,10 +49,21 @@
 
 <input type="button" *ngIf="!showAddGame" (click)="showAddGame = !showAddGame;" value="Add game" />
 <div class="group">						
-	<h3>Played games</h3>		
-	<div class="game" *ngFor="let game of games">
-		<span>Tournament: {{game.tournamentName}}</span><br/>
-		<span>{{game.homePlayers}} - {{game.awayPlayers}} : {{game.homeGoals}} - {{game.awayGoals}}</span>
-	</div>
+	<h3>Played games</h3>
+	
+	<table class="tournamentTable">
+		<tr *ngFor="let game of games">
+			<td *ngIf="game.timeMillis > 1">{{game.timeMillis | date: 'dd.MM.yyyy'}}</td>
+			<td *ngIf="game.timeMillis == 1">&nbsp;</td>		
+			<td class="right">{{game.homePlayers}}</td>
+			<td>-</td>
+			<td>{{game.awayPlayers}}</td>
+			<td class="right">{{game.homeGoals}}</td>
+			<td>-</td>
+			<td>{{game.awayGoals}}</td>
+		</tr>
+	
+	</table>
+	
 </div>			
 						

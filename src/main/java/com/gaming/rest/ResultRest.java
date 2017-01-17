@@ -15,34 +15,22 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.gaming.domain.Game;
 import com.gaming.domain.Result;
-import com.gaming.repository.GameRepository;
+import com.gaming.repository.GameService;
 
 @RestController
 public class ResultRest {
 
 	@Autowired
-	GameRepository gameRepository;
+	GameService gameService;
 	
 	@RequestMapping(value="/results/{tournamentName}")
 	public Collection<Result> getGamesByTournamentName(@PathVariable("tournamentName") String tournamentName){		
-		return resultsByGames(gamesByTournamentName(tournamentName));	
+		return resultsByGames(gameService.gamesByTournamentName(tournamentName));	
 	}
-	
-	private Iterable<Game> gamesByTournamentName(String tournamentName){
-		List<Game> games = new ArrayList<>();
 		
-		for(Game game : gameRepository.findAll()){
-			if(game.getTournamentName() != null && game.getTournamentName().equals(tournamentName)){
-				games.add(game);
-			}
-		}
-		
-		return games;
-	}
-	
 	@RequestMapping(value="/results")
 	public Collection<Result> getGames(){
-		return resultsByGames(gameRepository.findAll());	
+		return resultsByGames(gameService.findAll());	
 	}
 
 	private Collection<Result> resultsByGames(Iterable<Game> gameList) {

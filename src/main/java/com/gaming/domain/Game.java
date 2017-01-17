@@ -16,9 +16,11 @@ public class Game {
 	private List<String> awayPlayers;
 	private Integer homeGoals;
 	private Integer awayGoals;
+	private Long timeMillis;
 
 	public Game() {
 		super();
+		timeMillis = 1l;
 	}
 
 	@DynamoDBHashKey
@@ -74,6 +76,15 @@ public class Game {
 
 	public void setAwayGoals(Integer awayGoals) {
 		this.awayGoals = awayGoals;
+	}
+
+	@DynamoDBAttribute
+	public Long getTimeMillis() {
+		return timeMillis;
+	}
+
+	public void setTimeMillis(Long timeMillis) {
+		this.timeMillis = timeMillis;
 	}
 
 }

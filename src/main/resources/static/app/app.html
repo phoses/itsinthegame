@@ -1,5 +1,5 @@
 <randomizer [gamesRef]="games" [resultsRef]="results" class="group"></randomizer>
-<results #results class="group"></results>
+<results [gamesRef]="games" #results class="group"></results>
 <games #games class="group"></games>
 
 <button class="configbutton" (click)="showConfig = !showConfig">Toggle config</button>

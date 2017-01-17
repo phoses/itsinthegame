@@ -65,12 +65,12 @@ export class RandomizerComponent implements OnInit {
     
     saveGame(tournamentName: String) {  
                         
-        let game = new Game(tournamentName, this.randomteams.homeTeam, this.homeGoals, this.randomteams.awayTeam, this.awayGoals);
-                
+        let game = new Game(tournamentName, this.randomteams.homeTeam, this.homeGoals, this.randomteams.awayTeam, this.awayGoals, new Date().getTime());       
+        
         this.backendService.createGame(game)
             .then(game =>{
                 this.gameAdded = true;
-                this.gamesRef.getGames();
+                this.gamesRef.getGames(tournamentName);
                 this.resultsRef.getResults(tournamentName);
             })
             

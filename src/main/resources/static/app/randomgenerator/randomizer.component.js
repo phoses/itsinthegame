@@ -59,11 +59,11 @@ var RandomizerComponent = (function () {
     };
     RandomizerComponent.prototype.saveGame = function (tournamentName) {
         var _this = this;
-        var game = new game_1.Game(tournamentName, this.randomteams.homeTeam, this.homeGoals, this.randomteams.awayTeam, this.awayGoals);
+        var game = new game_1.Game(tournamentName, this.randomteams.homeTeam, this.homeGoals, this.randomteams.awayTeam, this.awayGoals, new Date().getTime());
         this.backendService.createGame(game)
             .then(function (game) {
             _this.gameAdded = true;
-            _this.gamesRef.getGames();
+            _this.gamesRef.getGames(tournamentName);
             _this.resultsRef.getResults(tournamentName);
         });
     };

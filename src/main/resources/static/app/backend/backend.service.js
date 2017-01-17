@@ -21,6 +21,7 @@ var BackendService = (function () {
         this.playersUrl = this.backendurl + '/players';
         this.tournamentsUrl = this.backendurl + '/tournaments';
         this.gamesUrl = this.backendurl + '/games';
+        this.playedGames = this.backendurl + '/playedGames';
         this.resultsUrl = this.backendurl + '/results';
         this.randomTeamsUrl = this.backendurl + '/randomteams';
     }
@@ -52,17 +53,12 @@ var BackendService = (function () {
         })
             .catch(this.handleError);
     };
-    BackendService.prototype.getGames = function () {
+    BackendService.prototype.getGames = function (tournamentName) {
         console.log("getGames()");
-        return this.http.get(this.gamesUrl)
+        return this.http.get(this.playedGames + "/" + tournamentName)
             .toPromise()
             .then(function (response) {
-            if (response.json()._embedded !== undefined) {
-                return response.json()._embedded.games;
-            }
-            else {
-                return [];
-            }
+            return response.json();
         })
             .catch(this.handleError);
     };

@@ -35,17 +35,17 @@ var GamesComponent = (function () {
             _this.tournaments = tournaments;
         });
     };
-    GamesComponent.prototype.getGames = function () {
+    GamesComponent.prototype.getGames = function (tournamentName) {
         var _this = this;
         this.backendService
-            .getGames()
+            .getGames(tournamentName)
             .then(function (games) {
             _this.games = games;
         });
     };
     GamesComponent.prototype.ngOnInit = function () {
         this.getPlayers();
-        this.getGames();
+        this.getGames("");
     };
     GamesComponent.prototype.saveGame = function (tournamentName, homePlayer1, homePlayer2, homePlayer3, homeGoals, awayPlayer1, awayPlayer2, awayPlayer3, awayGoals) {
         var _this = this;
@@ -53,7 +53,7 @@ var GamesComponent = (function () {
         var awayPlayers = [awayPlayer1, awayPlayer2, awayPlayer3];
         homePlayers = homePlayers.filter(function (n) { return n !== ""; });
         awayPlayers = awayPlayers.filter(function (n) { return n !== ""; });
-        var game = new game_1.Game(tournamentName, homePlayers, homeGoals, awayPlayers, awayGoals);
+        var game = new game_1.Game(tournamentName, homePlayers, homeGoals, awayPlayers, awayGoals, new Date().getTime());
         this.backendService.createGame(game)
             .then(function (game) {
             _this.games.push(game);

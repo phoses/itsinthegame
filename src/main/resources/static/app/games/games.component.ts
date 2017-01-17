@@ -36,9 +36,9 @@ export class GamesComponent implements OnInit {
             });
     }
     
-    getGames(): void {       
+    getGames(tournamentName : String): void {       
         this.backendService
-            .getGames()
+            .getGames(tournamentName)
             .then(games => {
                 this.games = games;
             });
@@ -46,7 +46,7 @@ export class GamesComponent implements OnInit {
     
     ngOnInit(): void {        
        this.getPlayers();
-       this.getGames();
+       this.getGames("");
     }
     
     saveGame(tournamentName: String, 
@@ -60,7 +60,7 @@ export class GamesComponent implements OnInit {
         homePlayers = homePlayers.filter(function(n){ return n !== "" }); 
         awayPlayers = awayPlayers.filter(function(n){ return n !== "" }); 
                         
-        let game = new Game(tournamentName, homePlayers, homeGoals, awayPlayers, awayGoals);
+        let game = new Game(tournamentName, homePlayers, homeGoals, awayPlayers, awayGoals, new Date().getTime());
                 
         this.backendService.createGame(game)
             .then(game =>{
