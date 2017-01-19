@@ -36,7 +36,7 @@ export class GamesComponent implements OnInit {
             });
     }
     
-    getGames(tournamentName : String): void {       
+    getGames(tournamentName : String): void {           
         this.backendService
             .getGames(tournamentName)
             .then(games => {
@@ -67,6 +67,26 @@ export class GamesComponent implements OnInit {
                 this.games.push(game);
             })
             
+    }
+    
+    dateChanged(timeMillis : number, index : number) : boolean{
+        
+        if(index === 0){
+            return true;
+        }
+        
+        var prevGame : Game = this.games[index-1];
+        var currentDate: Date = new Date(timeMillis);
+        var prevDate: Date = new Date(prevGame.timeMillis);
+        
+        var currentString : String = "" + currentDate.getFullYear() + currentDate.getMonth() + currentDate.getDate();
+        var prevString : String = "" + prevDate.getFullYear() + prevDate.getMonth() + prevDate.getDate();
+                
+        if(currentString !== prevString){
+            return true;
+        }
+        
+        return false;       
     }
 
 }

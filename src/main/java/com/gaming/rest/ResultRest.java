@@ -96,7 +96,8 @@ public class ResultRest {
 		}
 		
 		for(Result result : resultsList){
-			if(result.getGames() < maxPlayed / 2){
+			int playedPros = (int)(((double)result.getGames() / (double)maxPlayed) * 100);
+			if(playedPros < 40){
 				result.setFewGames(true);
 			}
 		}

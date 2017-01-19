@@ -59,6 +59,20 @@ var GamesComponent = (function () {
             _this.games.push(game);
         });
     };
+    GamesComponent.prototype.dateChanged = function (timeMillis, index) {
+        if (index === 0) {
+            return true;
+        }
+        var prevGame = this.games[index - 1];
+        var currentDate = new Date(timeMillis);
+        var prevDate = new Date(prevGame.timeMillis);
+        var currentString = "" + currentDate.getFullYear() + currentDate.getMonth() + currentDate.getDate();
+        var prevString = "" + prevDate.getFullYear() + prevDate.getMonth() + prevDate.getDate();
+        if (currentString !== prevString) {
+            return true;
+        }
+        return false;
+    };
     GamesComponent = __decorate([
         core_1.Component({
             selector: 'games',

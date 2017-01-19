@@ -52,9 +52,11 @@
 	<h3>Played games</h3>
 	
 	<table class="tournamentTable">
-		<tr *ngFor="let game of games">
-			<td *ngIf="game.timeMillis > 1">{{game.timeMillis | date: 'dd.MM.yyyy'}}</td>
-			<td *ngIf="game.timeMillis == 1">&nbsp;</td>		
+		<tr *ngFor="let game of games; let i = index">
+			<td class="right" >
+				<b *ngIf="game.timeMillis > 1 && dateChanged(game.timeMillis, i)">{{game.timeMillis | date: 'dd.MM.yyyy'}}</b>
+				<b *ngIf="game.timeMillis == 1">-</b>
+			</td>			
 			<td class="right">{{game.homePlayers}}</td>
 			<td>-</td>
 			<td>{{game.awayPlayers}}</td>
