@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { Result } from './result';
+import { Playerinfo } from './playerinfo';
 import { BackendService } from '../backend/backend.service';
 import { GamesComponent } from '../games/games.component';
 
@@ -24,6 +25,17 @@ export class ResultsComponent implements OnInit {
             });
         
         this.gamesRef.getGames(tournamentName);
+    }
+    
+    getPlayerinfo(result : Result, tournamentName: String): void {  
+    
+        result.showInfo = !result.showInfo;
+        
+        this.backendService
+            .getPlayerinfo(tournamentName, result.player)
+            .then(playerinfo => {
+                result.playerinfo = playerinfo;
+            });
     }
   
     ngOnInit(): void {        

@@ -14,7 +14,20 @@
 	</tr>
 	
 	<tr *ngFor="let result of results" [class.fewGames]="result.fewGames">
-		<td>{{result.player}}</td>
+		<td (click)="getPlayerinfo(result, tournamentName.getSelected())">{{result.player}}
+		
+			<div [hidden]="!result.showInfo" *ngIf="result.playerinfo" class="playerinfo">	
+				<b>Games won against</b>
+				<table style="width:100%;">
+					<tr *ngFor="let enemywinpros of result.playerinfo.enemyWinPros">
+						<td>{{enemywinpros.enemy}}</td>
+						<td class="right">{{enemywinpros.winpros}}%</td>
+					</tr>
+				</table>
+						
+			</div>
+		
+		</td>
 		<td class="right">{{result.games}}</td>
 		<td class="right">{{result.wins}}</td>
 		<td class="right">{{result.loses}}</td>

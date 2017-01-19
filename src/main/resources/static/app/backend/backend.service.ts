@@ -6,6 +6,7 @@ import { Player } from '../players/player';
 import { Tournament } from '../tournaments/tournament';
 import { Game } from '../games/game';
 import { Result } from '../results/result';
+import { Playerinfo } from '../results/playerinfo';
 import { RandomTeams } from '../randomgenerator/randomteams';
 
 @Injectable()
@@ -21,6 +22,7 @@ export class BackendService {
     private playedGames = this.backendurl+'/playedGames';  
     private resultsUrl = this.backendurl+'/results'; 
     private randomTeamsUrl = this.backendurl+'/randomteams'; 
+    private playerinfoUrl = this.backendurl+'/playerinfo'; 
 
     constructor(private http: Http) { }
 
@@ -92,6 +94,17 @@ export class BackendService {
             .toPromise()
             .then(response => {
                 return response.json() as RandomTeams;
+            })
+            .catch(this.handleError);
+    }
+    
+    getPlayerinfo(tournamentName : String, name : String): Promise<Playerinfo> { 
+        console.log("getPlayerinfo("+tournamentName+","+name+")");       
+
+        return this.http.get(this.playerinfoUrl+"/"+name+"/"+tournamentName)
+            .toPromise()
+            .then(response => {
+                return response.json() as Playerinfo;
             })
             .catch(this.handleError);
     }

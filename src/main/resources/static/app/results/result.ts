@@ -1,3 +1,5 @@
+import { Playerinfo } from './playerinfo';
+
 export class Result{
     player: String;
     games: number;
@@ -7,5 +9,7 @@ export class Result{
     winpros: number;
     plusminus: number;
     fewGames: boolean;  
-  
+    showInfo: boolean;  
+    
+    playerinfo : Playerinfo = new Playerinfo();
 }

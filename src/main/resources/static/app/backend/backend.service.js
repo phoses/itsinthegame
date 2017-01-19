@@ -24,6 +24,7 @@ var BackendService = (function () {
         this.playedGames = this.backendurl + '/playedGames';
         this.resultsUrl = this.backendurl + '/results';
         this.randomTeamsUrl = this.backendurl + '/randomteams';
+        this.playerinfoUrl = this.backendurl + '/playerinfo';
     }
     BackendService.prototype.getPlayers = function () {
         console.log("getPlayers()");
@@ -80,6 +81,15 @@ var BackendService = (function () {
             playerParams += players[i];
         }
         return this.http.get(this.randomTeamsUrl + "/?" + playerParams)
+            .toPromise()
+            .then(function (response) {
+            return response.json();
+        })
+            .catch(this.handleError);
+    };
+    BackendService.prototype.getPlayerinfo = function (tournamentName, name) {
+        console.log("getPlayerinfo(" + tournamentName + "," + name + ")");
+        return this.http.get(this.playerinfoUrl + "/" + name + "/" + tournamentName)
             .toPromise()
             .then(function (response) {
             return response.json();

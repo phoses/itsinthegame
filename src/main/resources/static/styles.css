@@ -153,3 +153,11 @@ table.tournamentTable th.right, table.tournamentTable td.right, input.right{
 table tr.fewGames{
 	color: #FF8080;
 }
+
+div.playerinfo{
+	color:black; 
+	border:1px solid black; 
+	background-color:white;
+	position: absolute; 
+	padding:4px;
+}

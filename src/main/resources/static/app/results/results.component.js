@@ -25,6 +25,14 @@ var ResultsComponent = (function () {
         });
         this.gamesRef.getGames(tournamentName);
     };
+    ResultsComponent.prototype.getPlayerinfo = function (result, tournamentName) {
+        result.showInfo = !result.showInfo;
+        this.backendService
+            .getPlayerinfo(tournamentName, result.player)
+            .then(function (playerinfo) {
+            result.playerinfo = playerinfo;
+        });
+    };
     ResultsComponent.prototype.ngOnInit = function () {
         this.getResults("");
     };
