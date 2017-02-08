@@ -94,7 +94,7 @@ app {
 	border: 1px solid #999;
 }
 
-tournaments, games, results, randomizer, games .group {
+tournaments, games, results, randomizer, games, .group {
 	display: block;
 	margin-bottom:30px;
 }
@@ -160,4 +160,10 @@ div.playerinfo{
 	background-color:white;
 	position: absolute; 
 	padding:4px;
+}
+
+generalinfo{
+	font-size: 0.7em;
+	display: block;
+	margin-bottom:15px;
 }
