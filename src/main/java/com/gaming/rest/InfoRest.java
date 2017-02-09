@@ -51,7 +51,7 @@ public class InfoRest {
 		}
 		
 		int homewinpros = (int) (((double) homewins / (double) gamesplayed) * 100);
-		int avggoaldif = (int) ((double) goaldif / (double) gamesplayed);
+		Double avggoaldif = (double) goaldif / (double) gamesplayed;
 				
 		return new GeneralInfo(gamesplayed, goals, avggoaldif, homewinpros);
 	}
@@ -70,6 +70,12 @@ public class InfoRest {
 				for (String enemy : game.getHomePlayers()) {
 					playerinfo.addEnemy(enemy, win);
 				}
+				
+				for(String partner : game.getAwayPlayers()){
+					if(!partner.equals(name)){
+						playerinfo.addPartner(partner, win);
+					}
+				}
 			}
 
 			if (game.getHomePlayers().contains(name)) {
@@ -78,6 +84,12 @@ public class InfoRest {
 
 				for (String enemy : game.getAwayPlayers()) {
 					playerinfo.addEnemy(enemy, win);
+				}
+				
+				for(String partner : game.getHomePlayers()){
+					if(!partner.equals(name)){
+						playerinfo.addPartner(partner, win);
+					}
 				}
 			}
 		}

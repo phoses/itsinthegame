@@ -17,11 +17,20 @@
 		<td (click)="getPlayerinfo(result, tournamentName.getSelected())">{{result.player}}
 		
 			<div [hidden]="!result.showInfo" *ngIf="result.playerinfo" class="playerinfo">	
-				<b>Games won against</b>
+				<b>Games won</b>
 				<table style="width:100%;">
+					<tr>
+						<th></th>
+						<th>Against%</th>
+						<th>With%</th>
+					</tr>
+					
 					<tr *ngFor="let enemywinpros of result.playerinfo.enemyWinPros">
 						<td>{{enemywinpros.enemy}}</td>
-						<td class="right">{{enemywinpros.winpros}}%</td>
+						<td class="right" *ngIf="enemywinpros.gamesAgainst == 0">-</td>
+						<td class="right" *ngIf="enemywinpros.gamesAgainst > 0">{{enemywinpros.winpros}}% ({{enemywinpros.gamesWonAgainst}} / {{enemywinpros.gamesAgainst}})</td>
+						<td class="right" *ngIf="enemywinpros.gamesWith == 0">-</td>
+						<td class="right" *ngIf="enemywinpros.gamesWith > 0">{{enemywinpros.winprosWith}}% ({{enemywinpros.gamesWonWith}} / {{enemywinpros.gamesWith}})</td>
 					</tr>
 				</table>
 						

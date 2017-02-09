@@ -4,10 +4,10 @@ public class GeneralInfo {
 
 	private Integer gamesplayed;
 	private Integer goals;
-	private Integer avggoaldif;
+	private Double avggoaldif;
 	private Integer homewinpros;
 
-	public GeneralInfo(Integer gamesplayed, Integer goals, Integer avggoaldif, Integer homewinpros) {
+	public GeneralInfo(Integer gamesplayed, Integer goals, Double avggoaldif, Integer homewinpros) {
 		super();
 		this.gamesplayed = gamesplayed;
 		this.goals = goals;
@@ -31,11 +31,11 @@ public class GeneralInfo {
 		this.goals = goals;
 	}
 
-	public Integer getAvggoaldif() {
+	public Double getAvggoaldif() {
 		return avggoaldif;
 	}
 
-	public void setAvggoaldif(Integer avggoaldif) {
+	public void setAvggoaldif(Double avggoaldif) {
 		this.avggoaldif = avggoaldif;
 	}
 
