@@ -9,6 +9,7 @@ public class Result {
 	private int points;
 	private int winpros;
 	private int plusminus;
+	private int elo = 1500;
 	
 	private boolean fewGames;
 
@@ -97,6 +98,14 @@ public class Result {
 
 	public void setFewGames(boolean fewGames) {
 		this.fewGames = fewGames;
+	}
+
+	public int getElo() {
+		return elo;
+	}
+
+	public void setElo(int elo) {
+		this.elo = elo;
 	}
 
 }

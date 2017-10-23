@@ -75,6 +75,40 @@ public class ResultRest {
 				
 				results.get(awayPlayer).adjustWinPros();
 			}
+			
+			Map<String, Integer> newElos = new HashMap<>();
+			
+			for(String homePlayer : game.getHomePlayers()){
+				Integer ownElo = results.get(homePlayer).getElo();
+				Integer opponentElo = 0;
+				for(String awayPlayer : game.getAwayPlayers()){
+					opponentElo += results.get(awayPlayer).getElo();
+				}
+				opponentElo = opponentElo / game.getAwayPlayers().size();		
+				
+				Integer newElo = calculateElo(ownElo, opponentElo, game.getHomeGoals() > game.getAwayGoals());
+				
+				newElos.put(homePlayer, newElo);
+			}
+			
+			for(String awayPlayer : game.getAwayPlayers()){
+				Integer ownElo = results.get(awayPlayer).getElo();
+				Integer opponentElo = 0;
+				for(String homeplayer : game.getHomePlayers()){
+					opponentElo += results.get(homeplayer).getElo();
+				}
+				opponentElo = opponentElo / game.getHomePlayers().size();		
+				
+				Integer newElo = calculateElo(ownElo, opponentElo, game.getHomeGoals() < game.getAwayGoals());
+				
+				newElos.put(awayPlayer, newElo);
+			}
+			
+			for(String player : newElos.keySet()){
+				results.get(player).setElo(newElos.get(player));
+			}
+			
+			
 		}
 				
 		List<Result> resultsList = new ArrayList<>(results.values());
@@ -102,6 +136,17 @@ public class ResultRest {
 			}
 		}
 		
+	}
+	
+	private Integer calculateElo(Integer elo1, Integer elo2, boolean win){
+		
+		Integer result = win ? 1 : 0;
+		Integer weight = 15;
+		
+		Double elo1Exp = 1 / ( 1 + Math.pow( 10, ( (elo2 - elo1) / 400 ) ) );
+		Integer newElo = (int) (elo1 + Math.round( weight * (result - elo1Exp) ));
+				
+		return newElo;
 	}
 
 	class ResultComparator implements Comparator<Result>{
